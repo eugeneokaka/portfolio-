@@ -41,9 +41,13 @@ export default function PurplefolioPage() {
 }
 
 /* -------- Header -------- */
+
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="flex items-center justify-between py-4">
+      {/* Logo + Name */}
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 shadow-2xl flex items-center justify-center font-bold text-black">
           E
@@ -51,6 +55,7 @@ function Header() {
         <div className="text-lg font-semibold tracking-wide">Eugene Okaka</div>
       </div>
 
+      {/* Desktop menu */}
       <nav className="hidden md:flex gap-6 items-center text-sm text-gray-300">
         <a href="#projects" className="hover:text-white transition">
           Projects
@@ -61,7 +66,6 @@ function Header() {
         <a href="#contact" className="hover:text-white transition">
           Contact
         </a>
-        {/* Resume download button */}
         <a
           href="/cv.pdf"
           download
@@ -71,12 +75,39 @@ function Header() {
         </a>
       </nav>
 
-      {/* mobile menu (simple) */}
+      {/* Mobile hamburger */}
       <div className="md:hidden">
-        <button aria-label="open menu" className="text-gray-300">
+        <button
+          aria-label="open menu"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-gray-300 text-2xl"
+        >
           ☰
         </button>
       </div>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-black bg-opacity-90 flex flex-col items-center gap-6 py-6 text-gray-300 md:hidden">
+          <a href="#projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>
+            About
+          </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
+          <a
+            href="/cv.pdf"
+            download
+            onClick={() => setMenuOpen(false)}
+            className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-violet-400 px-4 py-2 text-black font-medium shadow-md hover:scale-105 transform transition"
+          >
+            Download CV
+          </a>
+        </div>
+      )}
     </header>
   );
 }
