@@ -121,7 +121,7 @@ function Hero() {
           Eugene Okaka
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-            Fullstack Developer | AI & Healthcare Innovator
+            Fullstack Developer | From Frontend to Backend
           </span>
         </h1>
 
