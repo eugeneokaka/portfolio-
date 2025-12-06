@@ -13,7 +13,9 @@ import {
   Github,
   Server,
   LayoutTemplate,
+  Linkedin,
 } from "lucide-react";
+import Link from "next/link";
 
 // --- Data ---
 const projects = [
@@ -466,13 +468,22 @@ function Contact() {
             <div className="space-y-4">
               <ContactItem
                 icon={<Mail size={20} />}
-                text="eugene@example.com"
+                text="eugeneokaka@gmai.com"
               />
               <ContactItem icon={<MapPin size={20} />} text="Nairobi, Kenya" />
 
               <div className="flex gap-4 mt-8">
-                <SocialBtn icon={<Github size={20} />} />
-                <SocialBtn icon={<ExternalLink size={20} />} />
+                <Link href={"https://github.com/eugeneokaka"} target="_blank">
+                  <SocialBtn icon={<Github size={20} />} />
+                </Link>
+
+                {/* Replace with your actual LinkedIn profile URL */}
+                <Link
+                  href={"https://www.linkedin.com/in/eugene-okaka-06174a312/"}
+                  target="_blank"
+                >
+                  <SocialBtn icon={<Linkedin size={20} />} />
+                </Link>
               </div>
             </div>
           </div>
