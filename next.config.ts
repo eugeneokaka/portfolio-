@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
+// next.config.ts
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
   eslint: {
     ignoreDuringBuilds: true,
